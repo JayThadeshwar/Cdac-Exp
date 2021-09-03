@@ -1,139 +1,99 @@
-.main-container{
+.main-container {
     margin: auto;
-       
 }
 
-.content{    
+.content {
     display: flex;
     border: 1px solid black;
 }
 
-.heading{
+.heading {
     border: 1px solid crimson;
-    text-align: center;  
-    font-weight: lighter;  
+    text-align: center;
+    font-weight: lighter;
 }
 
-.simulator{
+.simulator {
     width: 70%;
     height: 550px;
     border-right: 1px solid black;
 }
 
-.instructions{    
+.instructions {
     font-size: larger;
     width: 30%;
 }
 
-.nail{
+.nail {
     height: 110px;
-	width: 160px;
+    width: 160px;
 }
 
-.cork{
+.cork {
     height: 60px;
-	width: 110px;
-    position: absolute;
-    left: 50px;
-    top: 450px;
+    width: 110px;
+    position: relative;
+    /* left: 50px;
+    top: 450px; */
 }
 
-.beaker{
+.beaker {
     background-image: url('./images/beaker.png');
     width: 115px;
     height: 135px;
-    position: absolute;
+    position: relative;
     left: 50px;
-    top: 380px;
+    bottom: 380px;
 }
 
-.stand{
-    position: absolute;
+.stand {
+    position: relative;
     left: 550px;
-    top: 390px;
+    bottom: 380px;
 }
 
-#nail-1{
-    position: absolute;
-    left: 13px;
-    top: 360px;
+#nail-1 {
+    position: relative;   
 }
 
-#nail-2{
-    position: absolute;
-    left: 33px;
-    top: 360px;
+#nail-2 {
+    position: relative;    
 }
 
-#tt1{
-    position: absolute;
-    left: 593px;
-    top: 350px;
-}
-#tt2{
-    position: absolute;
-    left: 660px;
-    top: 350px;
-}
-#tt3{
-    position: absolute;
-    left: 727px;
-    top: 350px;
-}
-#tt4{
-    position: absolute;
-    left: 794px;
-    top: 350px;
+.ttcol{
+    display: flex;
 }
 
-.battery{
+.battery {
     width: 130px;
     height: 130px;
-    position: absolute;
-    left: 30px;    
-    top: 100px;
+    position: relative;
 }
 
-.bulb{
+.bulb {
     height: 130px;
     width: auto;
-    position: absolute;
-    left: 350px;
-    top: 90px;
+    position: relative;
+    /* left: 350px;
+    top: 90px; */
 }
 
 li:not(:last-child) {
     margin-bottom: 15px;
 }
-/* 
-.bwire{
-    position: absolute;
-    height: 28px;
-    transform: rotate(82deg);
-    top: 245px;
-    left: -55px;
-} */
 
-/* .rwire{
-    position: absolute;
-    height: 180px;
-    width: 310px;
-    left: 113px;    
-    top: 110px;
-    transform: rotate(15deg);
-} */
 img {
     pointer-events: none;
 }
 
-.diag{
-    position: absolute;
+.diag {
+    position: relative;
     left: 780px;
-    top: 100px;    
-}   
+    top: 100px;
+}
 
-.circuitDiag{
-    position: absolute;
+.circuitDiag {
+    position: relative;
     margin: auto;
     left: 210px;
     top: 50px;
@@ -141,30 +101,46 @@ img {
     height: 450px;
 }
 
-.liquid{
+.liquid {
     position: absolute;
     top: 60px;
     left: 2px;
-    background-color: rgba(192, 192, 192,0.8);
-    width:25px;
-    height:100px;
+    background-color: rgba(192, 192, 192, 0.8);
+    width: 25px;
+    height: 100px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;    
+    border-bottom-right-radius: 30px;
 }
-.testtube{
+
+@keyframes liquidflow {
+    30%{
+        width: 20px;
+        height: 120px;
+    }
+    60%{
+        width: 10px;
+        height: 130px;
+    }
+    90%{
+        width: 5px;
+        height: 135px;
+    }
+}
+
+.testtube {
     background-image: url('./images/testtube.png');
     background-repeat: no-repeat;
     height: 250px;
     width: 200px;
 }
 
-.modal{
+.modal {
     height: 400px;
     width: 70%;
 }
 
-.overlay-modal{
-    background-color:rgba(192, 192, 192,0.7);
+.overlay-modal {
+    background-color: rgba(192, 192, 192, 0.7);
     height: 550px;
     width: 69%;
     position: fixed;
@@ -173,47 +149,61 @@ img {
     border: 1px solid black;
 }
 
-.beakliquid{
-    width: 100px;  
+.beakliquid {
+    width: 100px;
     height: 65px;
     position: relative;
     top: 65px;
     left: 5px;
     border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;          
-    background-color: rgba(192, 192, 192,0.5); 
+    border-bottom-right-radius: 18px;
+    background-color: rgba(192, 192, 192, 0.5);
 }
 
-.keytop{
-    position: absolute;
-    left: 300px;
-    top: 500px;
-    /* transform: rotateY(20deg); */
+.keytop {
+    position: relative;
+    /* left: 300px;
+    top: 500px; */
 }
 
-.key{
-    position: absolute;
-    left: 333px;
-    top: 455px;
+.key {
+    position: relative;
+    /* left: 333px;
+    top: 455px; */
 }
 
-table{
+table {
     margin: auto;
     text-align: center;
     margin-bottom: 25px;
 }
 
-td,th{
+td, th {
     padding: 5px;
 }
 
-.butGrp{
+.butGrp {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
 }
 
-.butGrp > button{
+.butGrp>button {
     padding: 5px;
     margin: 5px 10px;
+}
+
+.notificationSec {
+    position: relative;
+    height: 50px;
+    width: 895px;
+    /* top: 580px; */
+    text-align: center;
+    background-color: rgba(192, 192, 192, 0.8);
+}
+
+.notificationMsg {
+    font-size: larger;
+    position: relative;
+    top: 10px;
 }

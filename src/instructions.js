@@ -1,5 +1,7 @@
 import React from 'react';
+
 import InstructItem from './components/instruct_item'
+import TestButton from './components/testbutton'
 
 class Instructions extends React.Component
 {
@@ -23,7 +25,7 @@ class Instructions extends React.Component
         const sc2 = this.props.isInstScreen ? {display: 'none'} : {display: 'block'};
         
         return (
-            <div style={{textAlign: 'center'}}>
+            <div>
                 <p 
                     style={{
                         fontSize: '26px',
@@ -68,10 +70,10 @@ class Instructions extends React.Component
                     <label htmlFor='sample'>Which sample do you want to test?</label><br/>                    
 
                     <div className='butGrp' name='sample'>
-                        <button onClick >Test sample A</button>
-                        <button>Test sample B</button>
-                        <button>Test sample C</button>
-                        <button>Test sample D</button>
+                        <TestButton testSample={this.props.testSample} sampleName='A'/>
+                        <TestButton testSample={this.props.testSample} sampleName='B'/>
+                        <TestButton testSample={this.props.testSample} sampleName='C'/>
+                        <TestButton testSample={this.props.testSample} sampleName='D'/>                       
                     </div>
                 
                 </div>                

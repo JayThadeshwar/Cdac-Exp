@@ -37,6 +37,7 @@ class Simulator extends React.Component{
     }
 
     render(){     
+        const toTilt = this.props.toTilt
         return(
             <div>    
                 <CanvasElement 
@@ -49,7 +50,7 @@ class Simulator extends React.Component{
                     <div className='beakliquid'>                        
                     </div>
                 </div>
-
+ 
                 <img src={battery} className='battery' alt='Battery'/>
                 <img src={bulb} className='bulb' alt='Bulb'/>            
                 <div>
@@ -80,11 +81,17 @@ class Simulator extends React.Component{
                 <Wire imgName={rwire} wh='180' ww='310' wtop='110' wleft='113' rot='15deg' toShow = {this.props.wireInfo.posTerToBulb}/>
                 <Wire imgName={bwire2} wh='250' ww='250' wtop='313' wleft='89' toShow = {this.props.wireInfo.nailToKeytop}/>
 
-
-                <TestTube ttid='tt1' tx='-450' ttname='A'/>
-                <TestTube ttid='tt2' tx='-530' ttname='B'/>
-                <TestTube ttid='tt3' tx='-590' ttname='C'/>
-                <TestTube ttid='tt4' tx='-650' ttname='D'/>
+                <div className='ttcol'>
+                <TestTube ttid='tt1' tx='-450' ttname='A' tilt={toTilt === 'A'}/>
+                <TestTube ttid='tt2' tx='-530' ttname='B' tilt={toTilt === 'B'}/>
+                <TestTube ttid='tt3' tx='-590' ttname='C' tilt={toTilt === 'C'}/>
+                <TestTube ttid='tt4' tx='-650' ttname='D' tilt={toTilt === 'D'}/>
+                </div>
+                <div className='notificationSec'>
+                    <span className='notificationMsg'>
+                        {this.props.message}
+                    </span>                    
+                </div>
             </div>            
         );
     }

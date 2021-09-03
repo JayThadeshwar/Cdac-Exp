@@ -1,30 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-class TestTube extends React.Component {
+class TestTube extends React.Component {    
     render() {
+        const variants = {
+            rotate: {
+                translateX: parseInt(this.props.tx),
+                translateY: -250,
+                rotate: -90,
+                transition: { duration: 1.5 }
+            },
+            stop: {
+                translateX: 0,
+                translateY: 0,
+                rotate: 0,
+                transition: { duration: 1 }
+            }
+        }
+
         return (
             <motion.div
                 className='testtube'
                 id={this.props.ttid}
-                whileTap={{
-                    translateX: parseInt(this.props.tx),
-                    translateY: -250,
-                    rotate: -90
-                }}
-                transition={{ duration: 2 }}
+                variants={variants}
+                animate={this.props.tilt ? 'rotate' : 'stop'}
+                style={{position: 'relative'}}
             >
                 <span
                     style={{
                         position: 'relative',
-                        top: '15px',
+                        top: '10px',
                         left: '10px'
                     }}
                 >
                     {this.props.ttname}
                 </span>
-                <div className='liquid'>
-                </div>
+                <motion.div 
+                    className='liquid'                    
+                >
+                </motion.div>
             </motion.div>
         );
     }
