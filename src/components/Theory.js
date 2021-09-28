@@ -42,7 +42,7 @@ function TheoryComp() {
       <Paper elevation={13}>
         <Box p={3}>
           <center><Typography variant="h4" className={classes.orangecolor}>Theory</Typography></center>
-
+          <br/>
           <Typography style={{fontSize:20}}>All acids have similar chemical properties. All acids generate hydrogen gas on reacting with metals, so
             hydrogen seems to be common to all acids.</Typography>
           <br />
@@ -60,12 +60,14 @@ function TheoryComp() {
           
           <br />
           <Typography variant="h5" className={classes.orangecolor}>What do we observe?</Typography>
-          <Typography variant="h6"><DoubleArrowIcon />The bulb will start glowing in the case of acids.
-            <br /><DoubleArrowIcon />Glowing of the bulb indicates that there is a flow of electric current through the solution.
-            <br /><DoubleArrowIcon />The electric current is carried through the acidic solution by ions.
-            <br /><DoubleArrowIcon />But glucose and alcohol solutions do not conduct electricity.</Typography>
+          <Content info='The bulb will start glowing in the case of acids.'/>    
+          <Content info='Glowing of the bulb indicates that there is a flow of electric current through the solution.'/>    
+          <Content info='The electric current is carried through the acidic solution by ions.'/>    
+          <Content info='But glucose and alcohol solutions do not conduct electricity.'/>    
+          
           <br />
           <Typography variant="h5" className={classes.orangecolor}>What do we conclude?</Typography>
+          
           <Typography variant="h6"><DoubleArrowIcon />Acids contain H+ ion as cation and anion such as Cl– in HCl,
             <br /><DoubleArrowIcon />NO3– in HNO3,
             <br /><DoubleArrowIcon />SO–in H2SO4

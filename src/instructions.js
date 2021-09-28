@@ -67,7 +67,7 @@ class Instructions extends React.Component
                         </tbody>                    
                     </table>
 
-                    <label htmlFor='sample'>Which sample do you want to test?</label><br/>                    
+                    <label htmlFor='sample' style={{margin:'0px 20px'}}>Which sample do you want to test?</label><br/>                    
 
                     <div className='butGrp' name='sample'>
                         <TestButton testSample={this.props.testSample} sampleName='A'/>

@@ -19,6 +19,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import beaker from '../images/beaker.png';
 import cork from '../images/cork.png';
 import nails from '../images/nail.png';
+import wires from '../images/nailtokey.png';
+import battery from '../images/battery.png';
+import bulb from '../images/bulb.png';
+import switch2 from '../images/switch2.jpg';
+import testtube from '../images/testtube.png';
 
 const useStyles = makeStyles((theme) => ({
   procedurepaper: {
@@ -26,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(2),
       width: theme.spacing(190),
-      height: theme.spacing(180),
+      height: theme.spacing(185),
     },
   },
   orangecolor: {
@@ -36,9 +41,34 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 250
   },
   cardimage: {
-    height: 140
+    height: '170px',
+    width: '60%',
+    margin: '5px auto'
+  }, 
+  beaker: {
+    height: '170px',
+    width: '60%',
+    margin: '5px auto'
   },
-}));
+  testube: {
+    height: '170px',
+    width: '12%',
+    margin: '5px auto'
+  } 
+})
+);
+
+function StepsInfo(props) {
+  return (
+    <Box display='flex' alignItems='center'>
+      {props.children}
+      &nbsp;
+      <Typography style={{ fontSize: 20 }}>
+        {props.info}
+      </Typography>
+    </Box>
+  );
+}
 
 
 function ProcedureComp() {
@@ -55,7 +85,7 @@ function ProcedureComp() {
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
-                    className={classes.cardimage}
+                    className={classes.beaker}
                     image={beaker}
                   />
                   <CardContent>
@@ -98,7 +128,7 @@ function ProcedureComp() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardimage}
-                    image={nails}
+                    image={wires}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5"><center>Conducting Wires</center></Typography>
@@ -112,7 +142,7 @@ function ProcedureComp() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardimage}
-                    image={nails}
+                    image={battery}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5"><center>Battery</center></Typography>
@@ -126,7 +156,7 @@ function ProcedureComp() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardimage}
-                    image={nails}
+                    image={bulb}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5"><center>Bulb</center></Typography>
@@ -140,7 +170,7 @@ function ProcedureComp() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardimage}
-                    image={nails}
+                    image={switch2}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5"><center>Switch</center></Typography>
@@ -153,8 +183,8 @@ function ProcedureComp() {
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
-                    className={classes.cardimage}
-                    image={nails}
+                    className={classes.testube}
+                    image={testtube}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5"><center>Testubes with acids</center></Typography>
@@ -166,13 +196,27 @@ function ProcedureComp() {
           </Grid>
           <Typography variant="h5" className={classes.orangecolor}><br />Real Lab Procedure :</Typography>
           <Typography variant="h6">
-            <Filter1Icon /> Take solutions of glucose, alcohol, hydrochloric acid, sulphuric acid, etc.
-            <br /><Filter2Icon /> Fix two nails on a cork, and place the cork in a 100 mL beaker.
-            <br /><Filter3Icon /> Connect the nails to the two terminals of a 6 volt battery through a bulb and a switch.
-            <br /><Filter4Icon /> Now pour some dilute HCl in the beaker and switch on the current.
-            <br /><Filter5Icon /> Repeat with dilute sulphuric acid. What do you observe?
-            <br /><Filter6Icon /> Repeat the experiment separately with glucose and alcohol solutions. What do you observe now?
-            <br /><Filter7Icon /> Does the bulb glow in all cases?
+            <StepsInfo info='Take solutions of glucose, alcohol, hydrochloric acid, sulphuric acid, etc.'>
+              <Filter1Icon />
+            </StepsInfo>
+            <StepsInfo info='Fix two nails on a cork, and place the cork in a 100 mL beaker.'>
+              <Filter2Icon />
+            </StepsInfo>
+            <StepsInfo info='Connect the nails to the two terminals of a 6 volt battery through a bulb and a switch.'>
+              <Filter3Icon />
+            </StepsInfo>
+            <StepsInfo info='Now pour some dilute HCl in the beaker and switch on the current.'>
+              <Filter4Icon />
+            </StepsInfo>
+            <StepsInfo info='Repeat with dilute sulphuric acid. What do you observe?'>
+              <Filter5Icon />
+            </StepsInfo>
+            <StepsInfo info='Repeat the experiment separately with glucose and alcohol solutions. What do you observe now?'>
+              <Filter6Icon />
+            </StepsInfo>
+            <StepsInfo info='Does the bulb glow in all cases?'>
+              <Filter7Icon />
+            </StepsInfo>
           </Typography>
 
           <Typography variant="h5" className={classes.orangecolor}><br />Procedure for Simulation :</Typography>

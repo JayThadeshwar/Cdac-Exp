@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 import Wire from './components/wire';
 import CanvasElement from './components/canvas_area';
@@ -54,7 +55,22 @@ class Simulator extends React.Component{
                 <img src={battery} className='battery' alt='Battery'/>
                 <img src={bulb} className='bulb' alt='Bulb'/>            
                 <div>
-                    <button onClick={this.handleOpenModal} className='diag'>Show diagram</button>
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        onClick={this.handleOpenModal} 
+                        className='diag'
+                    >
+                        Show diagram
+                    </Button>
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        className='resetExp'                        
+                    >
+                        Reset experiment
+                    </Button>
+                    
                     <Modal 
                         style={{
                             content: {

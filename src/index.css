@@ -8,9 +8,19 @@
 }
 
 .heading {
-    border: 1px solid crimson;
+    border: 1px solid crimson;    
     text-align: center;
-    font-weight: lighter;
+    font-weight: lighter; 
+    display: flex;    
+    align-items: center;           
+}
+
+#headBut{
+    margin: 0px 30px;
+}
+
+#mainHead{
+    margin-left: 150px;
 }
 
 .simulator {
@@ -32,50 +42,76 @@
 .cork {
     height: 60px;
     width: 110px;
-    position: relative;
-    /* left: 50px;
-    top: 450px; */
+    position: absolute;
+    left: 50px;
+    top: 450px;
 }
 
 .beaker {
     background-image: url('./images/beaker.png');
     width: 115px;
     height: 135px;
-    position: relative;
+    position: absolute;
     left: 50px;
-    bottom: 380px;
+    top: 380px;
 }
 
 .stand {
-    position: relative;
+    position: absolute;
     left: 550px;
-    bottom: 380px;
+    top: 390px;
 }
 
 #nail-1 {
-    position: relative;   
+    position: absolute;
+    left: 13px;
+    top: 360px;
 }
 
 #nail-2 {
-    position: relative;    
+    position: absolute;
+    left: 33px;
+    top: 360px;
 }
 
-.ttcol{
-    display: flex;
+#tt1 {
+    position: absolute;
+    left: 593px;
+    top: 350px;
+}
+
+#tt2 {
+    position: absolute;
+    left: 660px;
+    top: 350px;
+}
+
+#tt3 {
+    position: absolute;
+    left: 727px;
+    top: 350px;
+}
+
+#tt4 {
+    position: absolute;
+    left: 794px;
+    top: 350px;
 }
 
 .battery {
     width: 130px;
     height: 130px;
-    position: relative;
+    position: absolute;
+    left: 30px;
+    top: 100px;
 }
 
 .bulb {
     height: 130px;
     width: auto;
-    position: relative;
-    /* left: 350px;
-    top: 90px; */
+    position: absolute;
+    left: 350px;
+    top: 90px;
 }
 
 li:not(:last-child) {
@@ -88,12 +124,12 @@ img {
 
 .diag {
     position: relative;
-    left: 780px;
-    top: 100px;
+    left: 730px;
+    bottom: 540px;
 }
 
 .circuitDiag {
-    position: relative;
+    position: absolute;
     margin: auto;
     left: 210px;
     top: 50px;
@@ -110,21 +146,6 @@ img {
     height: 100px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-}
-
-@keyframes liquidflow {
-    30%{
-        width: 20px;
-        height: 120px;
-    }
-    60%{
-        width: 10px;
-        height: 130px;
-    }
-    90%{
-        width: 5px;
-        height: 135px;
-    }
 }
 
 .testtube {
@@ -161,15 +182,15 @@ img {
 }
 
 .keytop {
-    position: relative;
-    /* left: 300px;
-    top: 500px; */
+    position: absolute;
+    left: 300px;
+    top: 500px;
 }
 
 .key {
-    position: relative;
-    /* left: 333px;
-    top: 455px; */
+    position: absolute;
+    left: 333px;
+    top: 455px;
 }
 
 table {
@@ -194,10 +215,10 @@ td, th {
 }
 
 .notificationSec {
-    position: relative;
+    position: absolute;
     height: 50px;
-    width: 895px;
-    /* top: 580px; */
+    width: 888px;
+    top: 580px;
     text-align: center;
     background-color: rgba(192, 192, 192, 0.8);
 }
@@ -206,4 +227,10 @@ td, th {
     font-size: larger;
     position: relative;
     top: 10px;
+}
+
+.resetExp{
+    position: relative;
+    bottom: 490px;
+    left: 563px;
 }

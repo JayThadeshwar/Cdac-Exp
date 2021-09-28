@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import red from "@material-ui/core/colors/red";
 import { makeStyles } from '@material-ui/core/styles';
 import purple from "@material-ui/core/colors/purple";
-import Container from './Container';
 
 const useStyles = makeStyles((theme) => ({
   orangecolor: {
@@ -32,7 +31,6 @@ function SimulationComp() {
         <Box p={3}>
           <Typography variant="h4" className={classes.orangecolor} align='center'>Simulation</Typography>
           <br/>
-          <Container />
         </Box>
       </Paper>
     </div>

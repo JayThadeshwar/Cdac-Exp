@@ -23,13 +23,12 @@ class TestTube extends React.Component {
                 className='testtube'
                 id={this.props.ttid}
                 variants={variants}
-                animate={this.props.tilt ? 'rotate' : 'stop'}
-                style={{position: 'relative'}}
+                animate={this.props.tilt ? 'rotate' : 'stop'}                
             >
                 <span
                     style={{
                         position: 'relative',
-                        top: '10px',
+                        top: '15px',
                         left: '10px'
                     }}
                 >

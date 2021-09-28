@@ -1,0 +1,12 @@
+1. Create reset button after pouring sample
+2. Navbar need to be made proper
+3. Animation are required to be done
+    3.1 Pouring of sample 
+    3.2 Glowing of light bulb
+4. Text and icons are not arranged properly
+5. Reminding the student when light bulb glows or don't glow (getting attention on result)
+6. Cleaning the code
+    6.1 Wire connection part need to be made proper
+    6.2 Connecting the key part (Automatically or Manually by user)
+    6.3 Removing redundunt code and making single component for it
+7. Self evaluation screen design need to be improved
