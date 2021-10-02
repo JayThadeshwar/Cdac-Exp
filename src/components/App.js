@@ -59,7 +59,7 @@ function App(props) {
           </Link>
           {
             !props.isHomePage && (
-              <Tab label="Evalutation" {...a11yProps(5)} />
+              <Tab label="Evaluation" {...a11yProps(5)} />
             )
           }
         </Tabs>

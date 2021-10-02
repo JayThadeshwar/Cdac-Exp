@@ -1,13 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-class TestTube extends React.Component {    
+// defliquid : true
+// liquid : false
+
+class TestTube extends React.Component { 
+    constructor(props){
+        super(props);
+        this.state = {
+            liqClass: 'defliquid'
+        }
+    }   
+
     render() {
         const variants = {
             rotate: {
                 translateX: parseInt(this.props.tx),
-                translateY: -250,
-                rotate: -90,
+                translateY: -270,
+                rotate: -100,
                 transition: { duration: 1.5 }
             },
             stop: {
@@ -18,6 +28,13 @@ class TestTube extends React.Component {
             }
         }
 
+        if(this.state.liqClass === 'defliquid' && this.props.toTilt === this.props.ttname){
+            let liq = 'liquid';
+            this.setState({
+                liqClass: liq
+            });
+        }
+    
         return (
             <motion.div
                 className='testtube'
@@ -35,7 +52,7 @@ class TestTube extends React.Component {
                     {this.props.ttname}
                 </span>
                 <motion.div 
-                    className='liquid'                    
+                    className={this.state.liqClass}                    
                 >
                 </motion.div>
             </motion.div>

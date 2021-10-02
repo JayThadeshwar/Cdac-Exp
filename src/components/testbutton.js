@@ -1,15 +1,16 @@
 import Button from '@material-ui/core/Button';
 
 function TestButton(props){
+    let variantType = props.toDisable ? 'disabled' : 'outlined'
     return (
         <Button 
-            variant="outlined" 
+            variant={variantType}
             color="primary" 
             onClick={() => {
                 props.testSample(props.sampleName)
                 setTimeout(() => {
                     props.testSample('Z')
-                }, 3500)
+                }, 11500)
             }}
         >
             Test sample {props.sampleName}

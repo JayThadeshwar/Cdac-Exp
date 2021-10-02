@@ -18,12 +18,13 @@ import keytop from './images/keytop.png';
 import key from './images/key.png';
 import bwire2 from './images/w1.png';
 import wire3 from './images/w2.png';
+import glowingBlub from './images/glow_bulb.png';
 
 class Simulator extends React.Component{ 
     constructor(props){
         super(props);
         this.state ={
-            showModal: false
+            showModal: false,
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -36,9 +37,14 @@ class Simulator extends React.Component{
     handleCloseModal () {
         this.setState({ showModal: false });
     }
+    
 
     render(){     
-        const toTilt = this.props.toTilt
+        const toTilt = this.props.toTilt    
+        if(toTilt !== 'Z' && this.props.classes !== 'flowanimation'){            
+            this.props.triggerAnimation();
+        }    
+
         return(
             <div>    
                 <CanvasElement 
@@ -48,12 +54,19 @@ class Simulator extends React.Component{
                 <img src={cork} className='cork' alt='Cork'/>
 
                 <div className='beaker'>
+                    <div className={`flowingwater ${this.props.classes}`}>
+                    </div>
+                    <div className={`${this.props.fillBeak}`}>
+                    </div>
                     <div className='beakliquid'>                        
                     </div>
                 </div>
  
                 <img src={battery} className='battery' alt='Battery'/>
-                <img src={bulb} className='bulb' alt='Bulb'/>            
+
+                <img src={bulb} className='bulb' alt='Bulb' hidden={this.props.glowBulb}/>                  
+                <img src={glowingBlub} className='gbulb' alt='Glow Bulb' hidden={!this.props.glowBulb}/>                  
+                
                 <div>
                     <Button 
                         variant="outlined" 
@@ -67,6 +80,7 @@ class Simulator extends React.Component{
                         variant="outlined" 
                         color="secondary" 
                         className='resetExp'                        
+                        onClick={this.props.handleBeakerReset} 
                     >
                         Reset experiment
                     </Button>
@@ -80,7 +94,7 @@ class Simulator extends React.Component{
                         className='modal'
                         overlayClassName='overlay-modal'
                         isOpen={this.state.showModal}
-                        contentLabel="Minimal Modal Example"
+                        contentLabel="Diagram modal"
                     >
                     <img src={cirDiag} className='circuitDiag' alt='Circuit diagram'/>                
                     <button onClick={this.handleCloseModal}>X</button>
@@ -98,10 +112,10 @@ class Simulator extends React.Component{
                 <Wire imgName={bwire2} wh='250' ww='250' wtop='313' wleft='89' toShow = {this.props.wireInfo.nailToKeytop}/>
 
                 <div className='ttcol'>
-                <TestTube ttid='tt1' tx='-450' ttname='A' tilt={toTilt === 'A'}/>
-                <TestTube ttid='tt2' tx='-530' ttname='B' tilt={toTilt === 'B'}/>
-                <TestTube ttid='tt3' tx='-590' ttname='C' tilt={toTilt === 'C'}/>
-                <TestTube ttid='tt4' tx='-650' ttname='D' tilt={toTilt === 'D'}/>
+                <TestTube ttid='tt1' tx='-450' ttname='A' tilt={this.props.toTilt === 'A'} toTilt={toTilt}/>
+                <TestTube ttid='tt2' tx='-520' ttname='B' tilt={this.props.toTilt === 'B'} toTilt={toTilt}/>
+                <TestTube ttid='tt3' tx='-585' ttname='C' tilt={this.props.toTilt === 'C'} toTilt={toTilt}/>
+                <TestTube ttid='tt4' tx='-650' ttname='D' tilt={this.props.toTilt === 'D'} toTilt={toTilt}/>
                 </div>
                 <div className='notificationSec'>
                     <span className='notificationMsg'>

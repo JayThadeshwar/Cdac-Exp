@@ -1,236 +1,335 @@
 .main-container {
-    margin: auto;
+	margin: auto;
 }
 
 .content {
-    display: flex;
-    border: 1px solid black;
+	display: flex;
+	border: 1px solid grey;
 }
 
 .heading {
-    border: 1px solid crimson;    
-    text-align: center;
-    font-weight: lighter; 
-    display: flex;    
-    align-items: center;           
-}
-
-#headBut{
-    margin: 0px 30px;
-}
-
-#mainHead{
-    margin-left: 150px;
+	border-left: 1px solid black;	
+	border-right: 1px solid black;
+	border-top: 1px solid black;    
+	text-align: center;
+	font-weight: lighter; 
+	display: flex;    
+	align-items: center;           
 }
 
 .simulator {
-    width: 70%;
-    height: 550px;
-    border-right: 1px solid black;
+	width: 70%;
+	height: 550px;
+	border-right: 1px solid black;
+	
 }
 
 .instructions {
-    font-size: larger;
-    width: 30%;
+	font-size: larger;
+	width: 30%;
 }
 
 .nail {
-    height: 110px;
-    width: 160px;
+	height: 110px;
+	width: 160px;
 }
 
 .cork {
-    height: 60px;
-    width: 110px;
-    position: absolute;
-    left: 50px;
-    top: 450px;
-}
-
-.beaker {
-    background-image: url('./images/beaker.png');
-    width: 115px;
-    height: 135px;
-    position: absolute;
-    left: 50px;
-    top: 380px;
+	height: 60px;
+	width: 110px;
+	position: absolute;
+	left: 50px;
+	top: 450px;
 }
 
 .stand {
-    position: absolute;
-    left: 550px;
-    top: 390px;
+	position: absolute;
+	left: 550px;
+	top: 390px;
 }
 
 #nail-1 {
-    position: absolute;
-    left: 13px;
-    top: 360px;
+	position: absolute;
+	left: 13px;
+	top: 360px;
 }
 
 #nail-2 {
-    position: absolute;
-    left: 33px;
-    top: 360px;
+	position: absolute;
+	left: 33px;
+	top: 360px;
 }
 
 #tt1 {
-    position: absolute;
-    left: 593px;
-    top: 350px;
+	position: absolute;
+	left: 593px;
+	top: 350px;
 }
 
 #tt2 {
-    position: absolute;
-    left: 660px;
-    top: 350px;
+	position: absolute;
+	left: 660px;
+	top: 350px;
 }
 
 #tt3 {
-    position: absolute;
-    left: 727px;
-    top: 350px;
+	position: absolute;
+	left: 727px;
+	top: 350px;
 }
 
 #tt4 {
-    position: absolute;
-    left: 794px;
-    top: 350px;
+	position: absolute;
+	left: 794px;
+	top: 350px;
 }
 
 .battery {
-    width: 130px;
-    height: 130px;
-    position: absolute;
-    left: 30px;
-    top: 100px;
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	left: 30px;
+	top: 100px;
 }
 
 .bulb {
-    height: 130px;
-    width: auto;
-    position: absolute;
-    left: 350px;
-    top: 90px;
+	height: 130px;
+	width: auto;
+	position: absolute;
+	left: 350px;
+	top: 90px;
+}
+
+.gbulb {
+	height: 135px;    
+	position: absolute;
+	left: 365px;
+	top: 85px;
 }
 
 li:not(:last-child) {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 img {
-    pointer-events: none;
+	pointer-events: none;
 }
 
 .diag {
-    position: relative;
-    left: 730px;
-    bottom: 540px;
+	position: relative;
+	left: 730px;
+	bottom: 540px;
 }
 
 .circuitDiag {
-    position: absolute;
-    margin: auto;
-    left: 210px;
-    top: 50px;
-    width: 50%;
-    height: 450px;
+	position: absolute;
+	margin: auto;
+	left: 210px;
+	top: 50px;
+	width: 50%;
+	height: 450px;
+}
+
+.defliquid {
+	position: absolute;
+	top: 60px;
+	left: 2px;
+	background-color: rgba(192, 192, 192, 0.8);
+	width: 25px;
+	height: 100px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;	
+	overflow: hidden;
 }
 
 .liquid {
-    position: absolute;
-    top: 60px;
-    left: 2px;
-    background-color: rgba(192, 192, 192, 0.8);
-    width: 25px;
-    height: 100px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+	position: absolute;
+	top: 60px;
+	left: 2px;
+	/*background-color: rgba(192, 192, 192, 0.8);*/
+	width: 25px;
+	height: 100px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;	
+	overflow: hidden;
+}
+
+.liquid:before{
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(192, 192, 192, 0.8);
+  transform: translateX(-50%);
+  border-radius: 40%;
+  animation: fillw 16s ease-out;
+  animation-direction: reverse;
+}
+
+@keyframes fillw {
+  from{
+    top:250px;
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to{
+    top:-50px;
+    transform: translateX(-50%) rotate(360deg);
+  }
 }
 
 .testtube {
-    background-image: url('./images/testtube.png');
-    background-repeat: no-repeat;
-    height: 250px;
-    width: 200px;
+	background-image: url('./images/testtube.png');
+	background-repeat: no-repeat;
+	height: 250px;
+	width: 200px;
 }
 
 .modal {
-    height: 400px;
-    width: 70%;
+	height: 400px;
+	width: 70%;
 }
 
 .overlay-modal {
-    background-color: rgba(192, 192, 192, 0.7);
-    height: 550px;
-    width: 69%;
-    position: fixed;
-    top: 80px;
-    left: 10px;
-    border: 1px solid black;
+	background-color: rgba(192, 192, 192, 0.7);
+	height: 550px;
+	width: 69%;
+	position: fixed;
+	top: 80px;
+	left: 10px;
+	border: 1px solid black;
 }
 
 .beakliquid {
-    width: 100px;
-    height: 65px;
-    position: relative;
-    top: 65px;
-    left: 5px;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    background-color: rgba(192, 192, 192, 0.5);
+	width: 100px;
+	height: 55px;
+	position: fixed;    
+	left: 55px;
+	top: 455px;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;   
+	background-color: rgba(192, 192, 192, 0.5);
+	z-index: -1;
+}
+
+.fill {
+  width: 100px;
+  height: 55px;
+  top: 20px;
+  left: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fill:before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(192, 192, 192, 0.5);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 40%;
+  animation: fill 14.5s ease-out;
+  z-index: -1;
+}
+
+@keyframes fill {
+	from{
+		top:250px;
+		transform: translateX(-50%) rotate(0deg);   
+	}
+	to{
+		top:-50px;
+		transform: translateX(-50%) rotate(360deg);
+	}
+}
+
+.flowingwater{
+  position: absolute;  
+  left: 85px; 
+  top: -55px; 
+  width: 5px;
+  height: 0px ;
+  background-color: rgba(192, 192, 192, 0.5);
+  border-radius: 25px 25px 50px 50px ;
+}
+
+.flowanimation{
+	animation: waterflow 9.5s 2s;
+}
+
+@keyframes waterflow{
+  	0%{
+	
+  	}
+  	35%{
+	height: 180px ;
+	}
+	80%{
+		height: 180px ;
+	}
+}
+
+
+.beaker {
+	background-image: url('./images/beaker.png');
+	width: 115px;
+	height: 135px;
+	position: absolute;
+	left: 50px;
+	top: 380px;
 }
 
 .keytop {
-    position: absolute;
-    left: 300px;
-    top: 500px;
+	position: absolute;
+	left: 300px;
+	top: 500px;
 }
 
 .key {
-    position: absolute;
-    left: 333px;
-    top: 455px;
+	position: absolute;
+	left: 333px;
+	top: 455px;
 }
 
 table {
-    margin: auto;
-    text-align: center;
-    margin-bottom: 25px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 25px;
 }
 
 td, th {
-    padding: 5px;
+	padding: 5px;
 }
 
 .butGrp {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
 }
 
 .butGrp>button {
-    padding: 5px;
-    margin: 5px 10px;
+	padding: 5px;
+	margin: 5px 10px;
 }
 
 .notificationSec {
-    position: absolute;
-    height: 50px;
-    width: 888px;
-    top: 580px;
-    text-align: center;
-    background-color: rgba(192, 192, 192, 0.8);
+	position: absolute;
+	height: 50px;
+	width: 888px;
+	top: 580px;
+	text-align: center;
+	background-color: rgba(192, 192, 192, 0.8);
 }
 
 .notificationMsg {
-    font-size: larger;
-    position: relative;
-    top: 10px;
+	font-size: larger;
+	position: relative;
+	top: 8px;
 }
 
 .resetExp{
-    position: relative;
-    bottom: 490px;
-    left: 563px;
+	position: relative;
+	bottom: 490px;
+	left: 563px;
 }
