@@ -46,7 +46,7 @@ class Simulator extends React.Component{
         }    
 
         return(
-            <div>    
+            <div className='simulContainer'>    
                 <CanvasElement 
                     showImage = {(i) => this.props.onWireDrawn(i)}
                 />      
@@ -124,7 +124,7 @@ class Simulator extends React.Component{
                 </div>
             </div>            
         );
-    }
+    } 
 } 
 
 export default Simulator;

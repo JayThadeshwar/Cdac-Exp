@@ -141,7 +141,7 @@ function SelfEvalComp() {
           </Box>
           <div style={{
               alignSelf:'center',
-              flex:'2',
+              flex:'3',
               textAlign:'center'
             }}>
               { helperText1 !== '' && (
@@ -176,7 +176,7 @@ function SelfEvalComp() {
             </Box>       
             <div style={{
               alignSelf:'center',
-              flex:'2',
+              flex:'3',
               textAlign:'center'
             }}>
               { helperText2 !== '' && (
@@ -283,7 +283,7 @@ function SelfEvalComp() {
             </Grid>
             <Grid item>
             <Button variant="contained" color="primary" onClick={handleClear}>
-              Cancel
+              Reset quiz
             </Button>
             </Grid>
           </Grid>

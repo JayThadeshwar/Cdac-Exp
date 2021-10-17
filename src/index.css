@@ -4,7 +4,7 @@
 
 .content {
 	display: flex;
-	border: 1px solid grey;
+	border: 1px solid black;
 }
 
 .heading {
@@ -19,9 +19,7 @@
 
 .simulator {
 	width: 70%;
-	height: 550px;
-	border-right: 1px solid black;
-	
+	border-right: 1px solid black;	
 }
 
 .instructions {
@@ -313,10 +311,14 @@ td, th {
 	margin: 5px 10px;
 }
 
+.simulContainer{
+	width: inherit;
+}
+
 .notificationSec {
 	position: absolute;
 	height: 50px;
-	width: 888px;
+	width: inherit;
 	top: 580px;
 	text-align: center;
 	background-color: rgba(192, 192, 192, 0.8);
