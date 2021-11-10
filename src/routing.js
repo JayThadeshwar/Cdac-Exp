@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import HomePage from './components/Home';
 import Container from './components/Container';
-import SelfEvaluation from './components/EvalWithNav'
+import SelfEvaluation from './components/EvalWithNav';
 
 function Routing(){
+    
     return(
         <Router>
             <Switch>

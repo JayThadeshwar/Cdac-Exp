@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+
 import NavBar from './App';
 import TabPanel from './TabPanel';
 import AboutComp from './About';
@@ -8,7 +10,6 @@ import ProcedureComp from './Procedure';
 function HomePage() {
     const [value, setValue] = React.useState(0);
     const handleChange = (newValue) => {
-        console.info("in")
         setValue(newValue);
     }
 
@@ -27,15 +28,19 @@ function HomePage() {
             </TabPanel>
 
             <TabPanel value={value} index={3}>
-                <iframe
-                    width="900"
-                    height="500"
-                    src="https://www.youtube.com/embed/Ikin3sBPU34"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={10} lg={9}>
+                        <iframe
+                            width="100%"
+                            height="500px"
+                            src="https://www.youtube.com/embed/Ikin3sBPU34"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </Grid>
+                </Grid>
             </TabPanel>
 
             <TabPanel value={value} index={4}>

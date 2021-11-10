@@ -2,6 +2,7 @@ import React from 'react';
 
 import InstructItem from './components/instruct_item'
 import TestButton from './components/testbutton'
+import Button from '@material-ui/core/Button';
 
 class Instructions extends React.Component
 {
@@ -38,6 +39,16 @@ class Instructions extends React.Component
                     <ol>
                         {listOfInst}
                     </ol>
+                     <Button 
+                        variant="outlined"
+                        color="primary"
+                        style={{
+                            display: this.props.toHighlight === 4  ? 'block' : 'none', 
+                            margin: '0px auto'}}
+                        onClick={this.props.handleInsertKey}
+                    >
+                    Insert key
+                    </Button> 
                 </div>
                 <div style={sc2}>
                     <table border='1px'>

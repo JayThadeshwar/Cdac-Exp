@@ -29,9 +29,7 @@ const useStyles = makeStyles((theme) => ({
   procedurepaper: {
     display: 'flex',
     '& > *': {
-      margin: theme.spacing(2),
-      width: theme.spacing(190),
-      height: theme.spacing(185),
+      margin: theme.spacing(0.5),
     },
   },
   orangecolor: {
@@ -44,7 +42,12 @@ const useStyles = makeStyles((theme) => ({
     height: '170px',
     width: '60%',
     margin: '5px auto'
-  }, 
+  },
+  battery: {
+    height: '170px',
+    width: '70%',
+    margin: '5px auto'
+  },
   beaker: {
     height: '170px',
     width: '60%',
@@ -54,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     height: '170px',
     width: '12%',
     margin: '5px auto'
-  } 
+  }
 })
 );
 
@@ -81,7 +84,7 @@ function ProcedureComp() {
           <center><Typography variant="h4" className={classes.orangecolor}>Procedure</Typography></center>
           <Typography variant="h5" className={classes.orangecolor}>Materials Required</Typography>
           <Grid container spacing={3}>
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -95,7 +98,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -109,7 +112,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -123,7 +126,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -137,11 +140,11 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
-                    className={classes.cardimage}
+                    className={classes.battery}
                     image={battery}
                   />
                   <CardContent>
@@ -151,7 +154,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -165,7 +168,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -179,7 +182,7 @@ function ProcedureComp() {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card className={classes.cardstyle} variant="outlined">
                 <CardActionArea>
                   <CardMedia
@@ -192,7 +195,6 @@ function ProcedureComp() {
                 </CardActionArea>
               </Card>
             </Grid>
-
           </Grid>
           <Typography variant="h5" className={classes.orangecolor}><br />Real Lab Procedure :</Typography>
           <Typography variant="h6">
@@ -221,24 +223,44 @@ function ProcedureComp() {
 
           <Typography variant="h5" className={classes.orangecolor}><br />Procedure for Simulation :</Typography>
           <Typography variant="h6">
-            <Filter1Icon />'Connect a wire between nail and negative terminal of the battery.
-            <br /><Filter2Icon /> Then, connect a wire between positive terminal of battery and bulb.
-            <br /><Filter3Icon /> Now, connect a wire between another nail and switch.
-            <br /><Filter4Icon /> Finally, connect a wire between switch and bulb.
-            <br /><Filter5Icon /> Connect the key to complete the circuit.
+            <StepsInfo info='Connect a wire between nail and negative terminal of the battery.'>
+              <Filter1Icon />
+            </StepsInfo>
+            <StepsInfo info='Then, connect a wire between positive terminal of battery and bulb.'>
+              <Filter2Icon />
+            </StepsInfo>
+            <StepsInfo info='Now, connect a wire between another nail and switch.'>
+              <Filter3Icon />
+            </StepsInfo>
+            <StepsInfo info='Finally, connect a wire between switch and bulb.'>
+              <Filter4Icon />
+            </StepsInfo>
+            <StepsInfo info='Connect the key to complete the circuit.'>
+              <Filter5Icon />
+            </StepsInfo>
           </Typography>
 
           <Typography variant="h5" className={classes.orangecolor}><br />Observation :</Typography>
           <Typography variant="h6">
-            <Filter1Icon /> The bulb will start glowing in the case of acids.
-            <br /><Filter2Icon /> Glucose and alcohol solutions do not conduct electricity.
+            <StepsInfo info='The bulb will start glowing in the case of acids.'>
+              <Filter1Icon />
+            </StepsInfo>
+            <StepsInfo info=' Glucose and alcohol solutions do not conduct electricity.'>
+              <Filter2Icon />
+            </StepsInfo>
           </Typography>
 
           <Typography variant="h5" className={classes.orangecolor}><br />Inference :</Typography>
           <Typography variant="h6">
-            <Filter1Icon /> Glowing of the bulb indicates that there is a flow of electric current through the solution
-            <br /><Filter2Icon /> The electric current is carried through the acidic solution by ions.
-            <br /><Filter3Icon /> Acids contain H+ ion as cation, this suggests that acids produce hydrogen ions, which are responsible for their acidic properties.
+            <StepsInfo info='Glowing of the bulb indicates that there is a flow of electric current through the solution'>
+              <Filter1Icon />
+            </StepsInfo>
+            <StepsInfo info='The electric current is carried through the acidic solution by ions.'>
+              <Filter2Icon />
+            </StepsInfo>
+            <StepsInfo info='Acids contain H+ ion as cation, this suggests that acids produce hydrogen ions, which are responsible for their acidic properties.'>
+              <Filter3Icon />
+            </StepsInfo>
           </Typography>
 
         </Box>

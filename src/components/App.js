@@ -30,7 +30,11 @@ function App(props) {
     <div className={classes.root}>
       <br />
       <AppBar position="static">
-        <Tabs value={props.val} onChange={props.handleChange} aria-label="simple tabs example">
+        <Tabs 
+          value={props.val} 
+          variant = "scrollable"
+          onChange={props.handleChange} 
+          aria-label="simple tabs example">
           {
             props.isHomePage && (
               <Tab label="Home" {...a11yProps(0)} />

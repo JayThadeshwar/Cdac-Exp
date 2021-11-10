@@ -33,7 +33,8 @@ class Container extends React.Component {
             classes: "",
             fillBeak: "",
             toDisable: false,
-            isExpCompletedOnce: false
+            isExpCompletedOnce: false,
+            insertKey: false,
         }
     }
 
@@ -47,30 +48,17 @@ class Container extends React.Component {
                     wireInstMap[i] = true
             }
 
-            if (ch === 3) {
-                this.setState({
-                    wireInfo: {
-                        negTerToNail: wireInstMap[0],
-                        posTerToBulb: wireInstMap[1],
-                        nailToKeytop: wireInstMap[2],
-                        keytopToBulb: wireInstMap[3]
-                    },
-                    instNumber: ch + 1,
-                    msg: 'Great work, you have constructed the circuit. Now start testing the samples.',
-                    isInstScreen: false
-                });
-            } else {
-                this.setState({
-                    wireInfo: {
-                        negTerToNail: wireInstMap[0],
-                        posTerToBulb: wireInstMap[1],
-                        nailToKeytop: wireInstMap[2],
-                        keytopToBulb: wireInstMap[3]
-                    },
-                    instNumber: ch + 1,
-                    msg: 'Well done! You are doing great.'
-                });
-            }
+            this.setState({
+                wireInfo: {
+                    negTerToNail: wireInstMap[0],
+                    posTerToBulb: wireInstMap[1],
+                    nailToKeytop: wireInstMap[2],
+                    keytopToBulb: wireInstMap[3]
+                },
+                instNumber: ch + 1,
+                msg: 'Well done! You are doing great.',
+            });
+
         } else if (this.state.isInstScreen) {
             this.setState({
                 msg: 'Please, construct the circuit according to the instructions.'
@@ -80,138 +68,155 @@ class Container extends React.Component {
 
     testSample(sampleName) {
         let stat = false
-        if(this.state.testDone.size === 5 && sampleName === 'Z')
-            stat = true         
+        if (this.state.testDone.size === 5 && sampleName === 'Z')
+            stat = true
 
         let gbulb = this.state.glowBulb
         let prevT = this.state.toTilt;
-        if(gbulb === false && (prevT === 'A' || prevT === 'B')){
+        if (gbulb === false && (prevT === 'A' || prevT === 'B')) {
             gbulb = true
         }
 
         let sample = '';
-        if(prevT === 'A')
+        if (prevT === 'A')
             sample = 'Hydrochloric acid'
-        else if(prevT === 'B')
+        else if (prevT === 'B')
             sample = 'Sulfuric acid'
-        else if(prevT === 'C')
+        else if (prevT === 'C')
             sample = 'Glucose'
-        else if(prevT === 'D')
+        else if (prevT === 'D')
             sample = 'Alcohol'
-        
+
         this.setState({
-            toTilt: sampleName,            
+            toTilt: sampleName,
             testDone: this.state.testDone.add(sampleName),
-            glowBulb: gbulb,            
+            glowBulb: gbulb,
             isExpDone: stat ? 1 : 0,
             msg: prevT !== 'Z' ?
-            (gbulb ? 
-            `Note that the bulb is glowing after adding the ${sample}. Please, reset before testing other samples.` : 
-            `Note that the bulb is not glowing after adding the ${sample}. Please, reset before testing other samples.`) :
-            'Wait for the sample to pour and then observe the bulb for the result.',
+                (gbulb ?
+                    `Note that the bulb is glowing after adding the ${sample}. Please, reset before testing other samples.` :
+                    `Note that the bulb is not glowing after adding the ${sample}. Please, reset before testing other samples.`) :
+                'Wait for the sample to pour and then observe the bulb for the result.',
             toDisable: prevT !== 'Z' ? !this.state.toDisable : false
         })
     }
 
-    handleBeakerReset (){        
+    handleBeakerReset() {
         this.setState({
             classes: "",
             fillBeak: "",
             glowBulb: false,
             toDisable: false,
-            msg: !this.state.isInstScreen ? 
-            'Try testing other samples and observe the results' : this.state.msg
+            msg: !this.state.isInstScreen ?
+                'Try testing other samples and observe the results' : this.state.msg
         });
     }
 
-    triggerAnimation (){
+    triggerAnimation() {
         this.setState({
             classes: 'flowanimation',
             fillBeak: 'fill'
         });
     }
 
-    handleCancel(){
+    handleCancel() {
         this.setState({
             isExpDone: 0,
             testDone: new Set(),
-            isExpCompletedOnce: true            
+            isExpCompletedOnce: true
+        });
+    }
+
+    handleInsertKey() {
+        this.setState({
+            insertKey: true,
+            msg: 'Great work, you have constructed the circuit. Now start testing the samples.',
+            isInstScreen: false
         });
     }
 
     render() {
-         
         return (
-            <div className="main-container">
-                <Dialog open={this.state.isExpDone}>
-                    <DialogTitle>{"Experiment completed"}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Well done, you have tested all the samples. 
-                            Now, check if you are able to answer the questions 
-                            related to this topic.
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button 
-                        onClick={() => this.props.history.push('/evaluation')}
-                        color="primary" 
-                    >
-                        Yes, let's do it
-                    </Button>
-                    <Button 
-                        onClick={() => this.handleCancel()} 
-                        color="primary"
-                    >
-                        Cancel
-                    </Button>
-                    </DialogActions>
-                </Dialog>   
-                <div className="heading" style={{display:'flex', justifyContent:'space-between',padding:'0px 15px'}}>
-                    <Button 
-                        variant="outlined" 
-                        startIcon={<HomeIcon/>} 
-                        id='headBut'
-                        onClick={() => this.props.history.push('')}
-                    >
-                        Home
-                    </Button>
-                    <h2 id='mainHead'>Conduction of electricity through acid and bases</h2>
-                    <Button 
-                        variant={this.state.isExpCompletedOnce ? "outlined" : "disabled"} 
-                        id='headBut'
-                        onClick={() => this.props.history.push('/evaluation')}
-                        hidden={true}
-                    >
-                        Self evaluation
-                    </Button>
+            <div className="op-container">
+                <div className="main-container">
+                    <Dialog open={this.state.isExpDone}>
+                        <DialogTitle>{"Experiment completed"}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Well done, you have tested all the samples.
+                                Now, check if you are able to answer the questions
+                                related to this topic.
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button
+                                onClick={() => this.props.history.push('/evaluation')}
+                                color="primary"
+                            >
+                                Yes, let's do it
+                            </Button>
+                            <Button
+                                onClick={() => this.handleCancel()}
+                                color="primary"
+                            >
+                                Cancel
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+                    <div className="heading" style={{ display: 'flex', justifyContent: 'space-between', padding: '0px 15px' }}>
+                        <Button
+                            variant="outlined"
+                            startIcon={<HomeIcon />}
+                            id='headBut'
+                            onClick={() => this.props.history.push('')}
+                        >
+                            Home
+                        </Button>
+                        <h2 id='mainHead'>Conduction of electricity through acid and bases</h2>
+                        <Button
+                            variant={this.state.isExpCompletedOnce ? "outlined" : "disabled"}
+                            id='headBut'
+                            onClick={() => this.props.history.push('/evaluation')}
+                            hidden={true}
+                        >
+                            Self evaluation
+                        </Button>
+                    </div>
+                    <div className="content">
+                        <div className="simulator">
+                            <Simulator
+                                wireInfo={this.state.wireInfo}
+                                onWireDrawn={(i) => this.showWire(i)}
+                                message={this.state.msg}
+                                toTilt={this.state.toTilt}
+                                glowBulb={this.state.glowBulb}
+                                classes={this.state.classes}
+                                fillBeak={this.state.fillBeak}
+                                handleBeakerReset={() => this.handleBeakerReset()}
+                                triggerAnimation={() => this.triggerAnimation()}
+                                insertKey={this.state.insertKey}
+                            />
+                        </div>
+                        <div className="instructions">
+                            <Instructions
+                                toHighlight={this.state.instNumber}
+                                isInstScreen={this.state.isInstScreen}
+                                testSample={(sampleName) => this.testSample(sampleName)}
+                                glowBulb={this.state.glowBulb}
+                                toDisable={this.state.toDisable}
+                                insertKey={this.state.insertKey}
+                                handleInsertKey={() => this.handleInsertKey()}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div className="content">
-                    <div className="simulator">
-                        <Simulator
-                            wireInfo={this.state.wireInfo}
-                            onWireDrawn={(i) => this.showWire(i)}
-                            message={this.state.msg}
-                            toTilt={this.state.toTilt}
-                            glowBulb={this.state.glowBulb}
-                            classes={this.state.classes}
-                            fillBeak={this.state.fillBeak}
-                            handleBeakerReset = {() => this.handleBeakerReset()}
-                            triggerAnimation = {() => this.triggerAnimation()}
-                        />
-                    </div>
-                    <div className="instructions">
-                        <Instructions
-                            toHighlight={this.state.instNumber}
-                            isInstScreen={this.state.isInstScreen}
-                            testSample={(sampleName) => this.testSample(sampleName)}
-                            glowBulb={this.state.glowBulb}
-                            toDisable={this.state.toDisable}
-                        />
-                    </div>
+                <div className="erRes">
+                    <h3>Please, open website on laptop/desktop to use simulator.</h3>
                 </div>
             </div>
         );
+
+
     }
 }
 

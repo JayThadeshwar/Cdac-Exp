@@ -5,11 +5,10 @@
     3.2 Glowing of light bulb
 
 
-4. Text and icons are not arranged properly	(Done need to integrate)
+4. Text and icons are not arranged properly	(Done)
 5. Reminding the student when light bulb glows or don't glow (getting attention on result) (Done)
-6. Cleaning the code
+6. Cleaning the code	(Done)
     6.1 Wire connection part need to be made proper
     6.2 Connecting the key part (Automatically or Manually by user)
     6.3 Removing redundunt code and making single component for it
 7. Self evaluation screen design need to be improved	(Done)
-8. Provide background for placing the components

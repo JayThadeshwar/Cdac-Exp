@@ -44,7 +44,7 @@ class Simulator extends React.Component{
         if(toTilt !== 'Z' && this.props.classes !== 'flowanimation'){            
             this.props.triggerAnimation();
         }    
-
+        let insertKey = this.props.insertKey ? 'insertKey' : '';
         return(
             <div className='simulContainer'>    
                 <CanvasElement 
@@ -104,7 +104,7 @@ class Simulator extends React.Component{
                 <img src={nail} className='nail' id='nail-1' alt='Nail 1'/>
                 <img src={nail} className='nail' id='nail-2' alt='Nail 2'/>
                 <img src={keytop} className='keytop' alt='Switch'/>
-                <img src={key} className='key' alt='Key'/>
+                <img src={key} className={`key ${insertKey}`} alt='Key'/>
                 
                 <Wire imgName={wire3} wh='380' ww='380' wtop='168' wleft='225' rot='80deg' toShow = {this.props.wireInfo.keytopToBulb}/>
                 <Wire imgName={bwire} wh='28' wtop='245' wleft='-55' rot='82deg' toShow = {this.props.wireInfo.negTerToNail}/>

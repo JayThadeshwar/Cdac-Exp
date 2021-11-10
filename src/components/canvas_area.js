@@ -51,7 +51,7 @@ function CanvasElement(props){
             })
             setIsDrawing(true) 
         } 
-        if(((x>=361 && x<=370) && (y>=500 && y<=508)) || ((x>=415 && x<=422) && (y>=215 && y<=222))){
+        if(((x>=360 && x<=372) && (y>=493 && y<=505)) || ((x>=412 && x<=422) && (y>=212 && y<=222))){
             contextRef.current.ctx.strokeStyle = 'black';
             setStart({
                 xcord: x - contextRef.current.ofx,
@@ -90,7 +90,7 @@ function CanvasElement(props){
         if(((x>=109 && x<=117) && (y>=367 && y<=376)) || ((x>=317 && x<=322) && (y>=503 && y<=507))){
             props.showImage(3)
         }   
-        if(((x>=361 && x<=370) && (y>=500 && y<=508)) || ((x>=415 && x<=422) && (y>=215 && y<=222))){
+        if(((x>=360 && x<=372) && (y>=493 && y<=505)) || ((x>=412 && x<=422) && (y>=212 && y<=222))){
             props.showImage(4)
         }
     }

@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     '& > *': {
       backgroundColor: blue[50],
-      margin: theme.spacing(2),
-      width: theme.spacing(200),
-      height: theme.spacing(110),
+      margin: theme.spacing(0.5),
+     
     },
   },
+  
   orangecolor: {
-    color: red[500]
+    color: red[500],   
   },
 
 }));
@@ -27,7 +27,7 @@ function Content(props){
   return(
     <Box display='flex' alignItems='center'>
       <DoubleArrowIcon />
-      <Typography style={{fontSize:20}}>
+      <Typography style={{fontSize:20, width:'100%'}}>
         {props.info}
       </Typography>      
     </Box>    
@@ -43,7 +43,7 @@ function TheoryComp() {
         <Box p={3}>
           <center><Typography variant="h4" className={classes.orangecolor}>Theory</Typography></center>
           <br/>
-          <Typography style={{fontSize:20}}>All acids have similar chemical properties. All acids generate hydrogen gas on reacting with metals, so
+          <Typography style={{fontSize:22}}>All acids have similar chemical properties. All acids generate hydrogen gas on reacting with metals, so
             hydrogen seems to be common to all acids.</Typography>
           <br />
           <Typography variant="h5" className={classes.orangecolor}>What we have to do?</Typography>
@@ -66,17 +66,15 @@ function TheoryComp() {
           <Content info='But glucose and alcohol solutions do not conduct electricity.'/>    
           
           <br />
-          <Typography variant="h5" className={classes.orangecolor}>What do we conclude?</Typography>
+          <Typography variant="h5" className={classes.orangecolor}>What do we conclude?</Typography>  
+          <Content info='Acids contain H+ ion as cation and anion such as Cl– in HCl.'/>    
+          <Content info='NO3 – in HNO3.'/>    
+          <Content info='SO – in H2SO4.'/>    
+          <Content info='Since the cation present in acids is H+, this suggests that acids produce hydrogen ions, H+(aq),which are responsible for their acidic properties.'/>  
           
-          <Typography variant="h6"><DoubleArrowIcon />Acids contain H+ ion as cation and anion such as Cl– in HCl,
-            <br /><DoubleArrowIcon />NO3– in HNO3,
-            <br /><DoubleArrowIcon />SO–in H2SO4
-            <br /><DoubleArrowIcon />Since the cation present in acids is H+, this suggests that acids produce hydrogen ions, H+(aq), in solution, which are responsible for their acidic properties.</Typography>
-
         </Box>
       </Paper>
     </div>
   );
 }
-
 export default TheoryComp;

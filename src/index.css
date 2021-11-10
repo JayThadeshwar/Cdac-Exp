@@ -1,10 +1,11 @@
 .main-container {
 	margin: auto;
+	display: block;
 }
 
 .content {
 	display: flex;
-	border: 1px solid black;
+	border: 1px solid grey;
 }
 
 .heading {
@@ -19,7 +20,8 @@
 
 .simulator {
 	width: 70%;
-	border-right: 1px solid black;	
+	height: 550px;
+	border-right: 1px solid black;
 }
 
 .instructions {
@@ -144,7 +146,6 @@ img {
 	position: absolute;
 	top: 60px;
 	left: 2px;
-	/*background-color: rgba(192, 192, 192, 0.8);*/
 	width: 25px;
 	height: 100px;
 	border-bottom-left-radius: 30px;
@@ -200,9 +201,9 @@ img {
 .beakliquid {
 	width: 100px;
 	height: 55px;
-	position: fixed;    
-	left: 55px;
-	top: 455px;
+	position: absolute;    
+	top:75px;
+	left: 5px;
 	border-bottom-left-radius: 18px;
 	border-bottom-right-radius: 18px;   
 	background-color: rgba(192, 192, 192, 0.5);
@@ -286,8 +287,22 @@ img {
 
 .key {
 	position: absolute;
-	left: 333px;
+	left: 334px;
 	top: 455px;
+}
+
+.insertKey{
+	animation: connectKey 1s ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes connectKey{
+	from{
+		top: 455px;	
+	}
+	to{
+		top: 485px;		
+	}	
 }
 
 table {
@@ -311,15 +326,11 @@ td, th {
 	margin: 5px 10px;
 }
 
-.simulContainer{
-	width: inherit;
-}
-
 .notificationSec {
 	position: absolute;
 	height: 50px;
-	width: inherit;
-	top: 580px;
+	width: 69%;
+	top: 579px;
 	text-align: center;
 	background-color: rgba(192, 192, 192, 0.8);
 }
@@ -334,4 +345,18 @@ td, th {
 	position: relative;
 	bottom: 490px;
 	left: 563px;
+}
+
+.erRes{
+	display: none;
+}
+
+@media screen and (max-width : 1200px){
+	.erRes{
+		display: block;
+		text-align: center;
+	}
+	.main-container{
+		display: none;
+	}
 }

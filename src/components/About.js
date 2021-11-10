@@ -7,14 +7,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import purple from "@material-ui/core/colors/purple";
 import diagram from '../images/ciruitdiag.png';
 
+
 const useStyles = makeStyles((theme) => ({
   descpaper: {
     display: 'flex',
+    flexWrap: 'wrap',
     '& > *': {
       backgroundColor: purple[50],
-      margin: theme.spacing(2),
-      width: theme.spacing(90),
-      height: theme.spacing(50),
+      margin: theme.spacing(1.5),
+      [theme.breakpoints.between('xs', 'sm')]: {
+        width: '100%'
+      },
+      [theme.breakpoints.between('sm', 'md')]: {
+        width: '100%'
+      },   
+      [theme.breakpoints.between('md', 'lg')]: {
+        width: '45%'
+      },
+      [theme.breakpoints.between('lg', 'xl')]: {
+        width: '47%'
+      },      
     },
   },
 
@@ -22,6 +34,21 @@ const useStyles = makeStyles((theme) => ({
     color: red[500]
   },
 
+  diagImg: {
+    height:"300",
+    [theme.breakpoints.between('xs', 'sm')]: {
+      width: '90%'
+    },
+    [theme.breakpoints.between('sm', 'md')]: {
+      width: '300px'
+    },    
+    [theme.breakpoints.between('md', 'lg')]: {
+      width: '70%'
+    },
+    [theme.breakpoints.between('lg', 'xl')]: {
+      width: '60%'
+    },    
+  }
 }));
 
 function AboutComp() {
@@ -46,7 +73,7 @@ function AboutComp() {
       </Paper>
       <Paper elevation="8">
         <Box p={3}><center>
-          <img src={diagram} alt="Experiment Diagram" height="300" />
+          <img src={diagram} alt="Experiment Diagram" className={classes.diagImg}/>
           <center><Typography style={{fontSize:28}} className={classes.orangecolor}>Experiment Setup</Typography></center>
         </center>
         </Box>
