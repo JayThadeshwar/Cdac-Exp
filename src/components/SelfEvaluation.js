@@ -119,6 +119,9 @@ function SelfEvalComp() {
           <Typography variant="h4" className={classes.orangecolor} style={{ textAlign: 'center' }}>
             Self Evaluation
           </Typography>
+          <Typography variant="h6" style={{ textAlign: 'center', fontWeight: '300'}}>
+            It is recommended that you try using simulator to get good understanding of experiment.
+          </Typography>
           <br />
           <Grid container spacing={3}>
 

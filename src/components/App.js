@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
-  simulLink: {
+  linksSty: {
     textDecoration: 'none',
     color: 'white'
-  }
+  },
 }));
 
 function App(props) {
@@ -30,10 +30,10 @@ function App(props) {
     <div className={classes.root}>
       <br />
       <AppBar position="static">
-        <Tabs 
-          value={props.val} 
-          variant = "scrollable"
-          onChange={props.handleChange} 
+        <Tabs
+          value={props.val}
+          variant="scrollable"
+          onChange={props.handleChange}
           aria-label="simple tabs example">
           {
             props.isHomePage && (
@@ -42,7 +42,7 @@ function App(props) {
           }
           {
             !props.isHomePage && (
-              <Link to="/" className={classes.simulLink}>
+              <Link to="/" className={classes.linksSty}>
                 <Tab label="Home" {...a11yProps(0)} />
               </Link>
             )
@@ -58,12 +58,19 @@ function App(props) {
           )}
 
 
-          <Link to="/simulator" className={classes.simulLink}>
+          <Link to="/simulator" className={classes.linksSty}>
             <Tab label="Simulation" {...a11yProps(4)} />
           </Link>
           {
             !props.isHomePage && (
               <Tab label="Evaluation" {...a11yProps(5)} />
+            )
+          }
+          {
+            props.isHomePage && (
+              <Link to="/evaluation" className={classes.linksSty}>
+                <Tab label="Evaluation" {...a11yProps(4)} />
+              </Link>
             )
           }
         </Tabs>
