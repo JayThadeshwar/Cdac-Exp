@@ -27,10 +27,7 @@ import testtube from '../images/testtube.png';
 
 const useStyles = makeStyles((theme) => ({
   procedurepaper: {
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(0.5),
-    },
+    display: 'flex',    
   },
   orangecolor: {
     color: red[500]
@@ -63,8 +60,11 @@ const useStyles = makeStyles((theme) => ({
 
 function StepsInfo(props) {
   return (
-    <Box display='flex' alignItems='center'>
-      {props.children}
+    <Box display='flex'>
+      <div style={{marginTop:'3px'}}>
+        {props.children}
+      </div>
+      
       &nbsp;
       <Typography style={{ fontSize: 20 }}>
         {props.info}

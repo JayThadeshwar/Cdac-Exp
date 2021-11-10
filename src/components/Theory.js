@@ -11,9 +11,7 @@ const useStyles = makeStyles((theme) => ({
   theorypaper: {
     display: 'flex',
     '& > *': {
-      backgroundColor: blue[50],
-      margin: theme.spacing(0.5),
-     
+      backgroundColor: blue[50],     
     },
   },
   
@@ -25,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Content(props){
   return(
-    <Box display='flex' alignItems='center'>
-      <DoubleArrowIcon />
+    <Box display='flex'>
+      <DoubleArrowIcon style={{marginTop:'3px'}}/>
       <Typography style={{fontSize:20, width:'100%'}}>
         {props.info}
       </Typography>      

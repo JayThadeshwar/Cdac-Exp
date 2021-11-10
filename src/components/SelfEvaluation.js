@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',    
     '& > *': {
       backgroundColor: blue[50],
-      margin: theme.spacing(2),
     },
   },
   orangecolor: {

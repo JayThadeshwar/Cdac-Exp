@@ -12,11 +12,14 @@ const useStyles = makeStyles((theme) => ({
   descpaper: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'space-evenly',    
+    width: '100%',
     '& > *': {
       backgroundColor: purple[50],
-      margin: theme.spacing(1.5),
+      marginBottom: theme.spacing(1),      
       [theme.breakpoints.between('xs', 'sm')]: {
-        width: '100%'
+        width: '100%',
+        marginBottom: theme.spacing(3),   
       },
       [theme.breakpoints.between('sm', 'md')]: {
         width: '100%'
